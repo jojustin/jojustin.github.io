@@ -5,7 +5,7 @@
   ],
   [
     "Kubernetes",
-    15
+    25
   ],
   [
     "Push",
@@ -49,7 +49,7 @@
   ],
   [
     "Management",
-    10
+    15
   ],
   [
     "Center",
@@ -57,7 +57,7 @@
   ],
   [
     "Secure",
-    5
+    10
   ],
   [
     "Design",
@@ -169,7 +169,7 @@
   ],
   [
     "Microservices",
-    5
+    10
   ],
   [
     "Automated",
@@ -238,5 +238,49 @@
   [
     "Across",
     5
+  ],
+  [
+    "Cloud",
+    25
+  ],
+  [
+    "Platform",
+    25
+  ],
+  [
+    "Engineering",
+    25
+  ],
+  [
+    "Chaos",
+    20
+  ],
+  [
+    "Golden",
+    10
+  ],
+  [
+    "Paths",
+    10
+  ],
+  [
+    "Event",
+    10
+  ],
+  [
+    "Driven",
+    10
+  ],
+  [
+    "Shift",
+    10
+  ],
+  [
+    "Your",
+    10
+  ],
+  [
+    "Configuration",
+    10
   ]
 ]

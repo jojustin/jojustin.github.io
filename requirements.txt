@@ -1,0 +1,5 @@
+requests-html==0.10.0
+lxml==5.3.0
+lxml_html_clean
+beautifulsoup4
+requests

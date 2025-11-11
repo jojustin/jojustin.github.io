@@ -1,6 +1,9 @@
 import requests, re, json, os, collections
 from bs4 import BeautifulSoup
 import os
+from requests_html import HTMLSession
+from playwright.sync_api import sync_playwright
+import time, re
 
 # ---------------------------------
 # CONFIGURATION
@@ -78,23 +81,15 @@ def compare_wordclouds(current_data, prev_data):
 # ---------------------------------
 # FETCH FUNCTIONS
 # ---------------------------------
-# def fetch_dzone_titles():
-#     titles = []
-#     feed = feedparser.parse(DZONE_RSS)
-#     for entry in feed.entries:
-#         titles.append(clean_text(entry.title))
-#     print(f"✅ DZone: {len(titles)} titles fetched (via RSS)")
-#     return titles
-
-# def fetch_scholar_titles():
-#     titles = []
-#     resp = requests.get(SCHOLAR_URL)
-#     soup = BeautifulSoup(resp.text, 'html.parser')
-#     for td in soup.select('td.gsc_a_t a'):
-#         title = td.text.strip()
-#         titles.append(clean_text(title))
-#     print(f"✅ Google Scholar: {len(titles)} titles fetched")
-#     return titles
+def fetch_dzone_titles():
+    path = "dzone_titles.txt"
+    if os.path.exists(path):
+        with open(path) as f:
+            titles = [clean_text(line.strip()) for line in f if line.strip()]
+        print(f"✅ DZone: {len(titles)} titles loaded from local file")
+        return titles
+    print("⚠️ Could not fetch DZone articles (Cloudflare challenge).")
+    return []
 
 def fetch_patent_titles():
     titles = []
@@ -142,7 +137,7 @@ def fetch_ieee_titles():
 # MAIN
 # -------------------------
 def main():
-    all_titles = fetch_ieee_titles() + fetch_patent_titles()
+    all_titles = fetch_ieee_titles() + fetch_patent_titles() + fetch_dzone_titles()
     freq = extract_keywords(all_titles)
     current_data = dict((word, min(count * 5, 50)) for word, count in freq.most_common(60))
 
