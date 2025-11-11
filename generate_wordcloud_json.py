@@ -6,7 +6,6 @@ import time
 # ---------------------------------
 # CONFIGURATION
 # ---------------------------------
-# DZONE_URL = "https://dzone.com/users/jojustin"  # Josephine's DZone page
 SCHOLAR_URL = "https://scholar.google.com/citations?user=NNLK86QAAAAJ&hl=en"
 PATENT_URLS = [
     "https://patents.google.com/patent/US11971805B2/en",
@@ -137,13 +136,22 @@ def fetch_ieee_titles():
 def main():
     all_titles = fetch_ieee_titles() + fetch_patent_titles() + fetch_dzone_titles()
     freq = extract_keywords(all_titles)
-    current_data = dict((word, min(count * 5, 50)) for word, count in freq.most_common(60))
+
+    # ✅ Take exactly top 50 keywords
+    top_keywords = freq.most_common(50)
+
+    # Normalize weights to stay visually balanced (10–50)
+    current_data = {
+        word: int((count / top_keywords[0][1]) * 50)
+        for word, count in top_keywords
+    }
 
     prev_data = load_previous_data()
     new_words = compare_wordclouds(current_data, prev_data)
 
-    # Merge & Save
-    combined_data = {**prev_data, **current_data}
+    # ✅ Keep only top 50 even in combined data
+    combined_data = dict(list(current_data.items())[:50])
+
     with open(OUTPUT_FILE, "w") as f:
         json.dump([[w, v] for w, v in combined_data.items()], f, indent=2)
 
@@ -155,7 +163,7 @@ def main():
         print("✅ No new words detected")
 
     print(f"✅ Wordcloud data updated → {OUTPUT_FILE}")
-    print("Top 10 keywords:", freq.most_common(10))
+    print("Top 10 keywords:", top_keywords[:10])
 
 if __name__ == "__main__":
     main()
