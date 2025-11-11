@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About Me – Josephine Eskaline Joyce</title>
 
+  <!-- Word Cloud Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/wordcloud2.js/1.2.2/wordcloud2.min.js"></script>
+
   <style>
     :root {
       --ibm-blue: #054ada;
@@ -162,6 +165,9 @@
       <!-- <a href="https://medium.com/@jojustin" target="_blank">Medium</a> -->
       <a href="https://scholar.google.com/citations?user=NNLK86QAAAAJ&hl=en" target="_blank">Google Scholar</a>
     </div>
+
+    <!-- Word Cloud inside Sidebar -->
+    <canvas id="wordCanvas" width="250" height="250" style="margin-top:20px;"></canvas>
   </div>
 
   <!-- RIGHT CONTENT -->
@@ -292,5 +298,32 @@
       </a>
     </div> -->
   </div>
+
+  <script>
+  const words = [
+    ['Cloud Architecture', 40],
+    ['Platform Engineering', 35],
+    ['Zero Trust', 25],
+    ['Kubernetes', 30],
+    ['DevSecOps', 28],
+    ['IaC', 32],
+    ['AI Automation', 26],
+    ['LLM Performance', 22],
+    ['Auto-Scaling', 27],
+    ['Cloud Security', 33]
+  ];
+
+  WordCloud(document.getElementById('wordCanvas'), {
+    list: words,
+    gridSize: 5,
+    weightFactor: 3,
+    fontFamily: 'Helvetica, Arial, sans-serif',
+    color: 'white',
+    backgroundColor: '#054ada',
+    rotateRatio: 0.3,
+    rotationSteps: 2,
+    shape: 'circle'
+  });
+</script>
 </body>
 </html>
