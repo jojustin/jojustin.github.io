@@ -19,51 +19,86 @@
       background-color: var(--ibm-gray);
       color: var(--ibm-dark);
       line-height: 1.6;
-    }
-
-    .container {
       display: flex;
-      flex-wrap: wrap;
-      align-items: flex-start;
-      justify-content: center;
+      flex-direction: row;
       min-height: 100vh;
-      padding: 60px 20px;
-      background: linear-gradient(90deg, var(--ibm-blue) 35%, white 35%);
     }
 
-    .photo {
-      flex: 1 1 280px;
+    /* ===== LEFT SIDEBAR ===== */
+    .sidebar {
+      position: sticky;
+      top: 0;
+      flex: 0 0 320px;
+      background: var(--ibm-blue);
+      color: white;
+      height: 100vh;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
-      padding: 20px;
+      justify-content: flex-start;
+      padding: 40px 20px;
+      box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
     }
 
-    .photo img {
-      width: 250px;
-      height: 250px;
-      object-fit: cover;
+    .sidebar img {
+      width: 200px;
+      height: 200px;
       border-radius: 50%;
-      border: 5px solid white;
-      box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+      border: 4px solid white;
+      object-fit: cover;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
+      margin-bottom: 25px;
+      transition: transform 0.3s ease-in-out;
     }
 
+    .sidebar img:hover {
+      transform: scale(1.05);
+    }
+
+    .sidebar h1 {
+      margin: 0;
+      font-size: 22px;
+      text-align: center;
+    }
+
+    .sidebar h3 {
+      font-weight: normal;
+      text-align: center;
+      font-size: 14px;
+      color: #cbd8ff;
+      margin-top: 5px;
+      margin-bottom: 25px;
+    }
+
+    .sidebar .links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .sidebar .links a {
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      margin: 6px 0;
+      transition: opacity 0.3s;
+    }
+
+    .sidebar .links a:hover {
+      opacity: 0.7;
+    }
+
+    /* ===== RIGHT CONTENT ===== */
     .content {
-      flex: 2 1 600px;
+      flex: 1;
+      padding: 60px 80px;
       background-color: white;
-      padding: 40px;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    }
-
-    h1 {
-      color: var(--ibm-blue);
-      margin-top: 0;
+      overflow-y: auto;
     }
 
     h2 {
       color: var(--ibm-accent);
-      margin-top: 30px;
+      margin-top: 40px;
       border-bottom: 2px solid var(--ibm-accent);
       display: inline-block;
       padding-bottom: 5px;
@@ -72,23 +107,6 @@
     ul {
       list-style-type: square;
       padding-left: 20px;
-    }
-
-    .links {
-      margin-top: 10px;
-      margin-bottom: 20px;
-    }
-
-    .links a {
-      display: inline-block;
-      margin-right: 15px;
-      text-decoration: none;
-      color: var(--ibm-blue);
-      font-weight: 600;
-    }
-
-    .links a:hover {
-      text-decoration: underline;
     }
 
     .blog-card {
@@ -110,119 +128,124 @@
       text-decoration: underline;
     }
 
-    @media (max-width: 768px) {
-      .container {
+    @media (max-width: 900px) {
+      body {
         flex-direction: column;
-        background: var(--ibm-blue);
+      }
+
+      .sidebar {
+        position: relative;
+        flex: none;
+        width: 100%;
+        height: auto;
+        box-shadow: none;
       }
 
       .content {
-        margin-top: 20px;
+        padding: 30px 20px;
       }
     }
   </style>
 </head>
 
 <body>
-  <div class="container">
-    <div class="photo">
-      <img src="ProfilePhoto.jpg" alt="Josephine Eskaline Joyce" />
+  <!-- LEFT SIDEBAR -->
+  <div class="sidebar">
+    <img src="joyce.jpg" alt="Josephine Eskaline Joyce" />
+    <h1>Josephine Eskaline Joyce</h1>
+    <h3>Cloud Architect @ IBM<br>AI & Platform Engineering Researcher</h3>
+
+    <div class="links">
+      <a href="https://github.com/jojustin" target="_blank">GitHub</a>
+      <a href="https://www.linkedin.com/in/josephine-eskaline-joyce" target="_blank">LinkedIn</a>
+      <a href="https://dzone.com/users/jojustin" target="_blank">DZone</a>
+      <a href="https://medium.com/@jojustin" target="_blank">Medium</a>
+      <a href="https://scholar.google.com/citations?user=NNLK86QAAAAJ&hl=en" target="_blank">Google Scholar</a>
+    </div>
+  </div>
+
+  <!-- RIGHT CONTENT -->
+  <div class="content">
+    <!-- WHO AM I -->
+    <h2>Who Am I</h2>
+    <p>
+      I am a technology researcher and cloud architect passionate about building intelligent,
+      scalable, and self-healing cloud platforms. My work bridges <strong>AI, Kubernetes, and DevOps</strong>,
+      helping enterprises achieve operational excellence through automation and data-driven insights.
+    </p>
+
+    <!-- WHAT I WORK ON -->
+    <h2>What I Work On</h2>
+    <ul>
+      <li>Horizontal Pod Autoscaling for Large Language Models using custom metrics</li>
+      <li>AI-driven Platform Engineering and Intelligent Automation</li>
+      <li>Self-Healing Infrastructure and Multi-Agent Architectures</li>
+      <li>Cloud Security and Zero-Trust Implementations in AI Applications</li>
+    </ul>
+
+    <!-- PUBLICATIONS -->
+    <h2>Publications</h2>
+    <ul>
+      <li>
+        IEEE Paper — <em>Enhancing Kubernetes Auto-Scaling: Leveraging Metrics for Improved Workload Performance</em>
+      </li>
+      <li>
+        Research Article — <em>Performance Analysis of Horizontal Pod Autoscaler for LLM Applications</em> (In Progress)
+      </li>
+    </ul>
+
+    <!-- PATENTS -->
+    <h2>Patents</h2>
+    <ul>
+      <li><em>AI-driven Autoscaling Framework for Adaptive Cloud Systems</em> — Filed 2025</li>
+      <li><em>Self-Healing Autonomous Defender (SHADE) Framework</em> — Concept Submission</li>
+    </ul>
+
+    <!-- CONFERENCES -->
+    <h2>Conferences & Talks</h2>
+    <ul>
+      <li>Speaker — <em>Securing the Future: Navigating Challenges in MLSecOps</em></li>
+      <li>Speaker — <em>Achieving Zero Trust in AI Applications</em></li>
+      <li>Presenter — <em>Intelligent Automation in Platform Engineering with AI Agents</em></li>
+    </ul>
+
+    <!-- BLOGS -->
+    <h2>Blogs & Articles</h2>
+
+    <h3>🌐 Platform Engineering</h3>
+    <div class="blog-card">
+      <a href="https://dzone.com/articles/breaking-to-build-better-platform-engineering-with-chaos-experiments" target="_blank">
+        Breaking to Build Better: Platform Engineering with Chaos Experiments
+      </a>
+    </div>
+    <div class="blog-card">
+      <a href="https://dzone.com/articles/intelligent-automation-in-platform-engineering" target="_blank">
+        Intelligent Automation in Platform Engineering with AI Agents
+      </a>
     </div>
 
-    <div class="content">
-      <h1>Josephine Eskaline Joyce</h1>
-      <h3>Cloud Architect @ IBM | AI & Platform Engineering Researcher</h3>
+    <h3>☁️ Cloud Security & Compliance</h3>
+    <div class="blog-card">
+      <a href="https://dzone.com/articles/workload-protection-in-the-cloud-why-it-matters-more-than-ever" target="_blank">
+        Workload Protection in the Cloud: Why It Matters More Than Ever
+      </a>
+    </div>
+    <div class="blog-card">
+      <a href="https://dzone.com/articles/achieving-zero-trust-in-ai-applications" target="_blank">
+        Achieving Zero Trust in AI Applications: A Strategic Approach
+      </a>
+    </div>
 
-      <!-- CONNECT WITH ME -->
-      <div class="links">
-        <a href="https://github.com/jojustin" target="_blank">GitHub</a>
-        <a href="https://www.linkedin.com/in/josephine-eskaline-joyce" target="_blank">LinkedIn</a>
-        <a href="https://dzone.com/users/jojustin" target="_blank">DZone</a>
-        <a href="https://medium.com/@jojustin" target="_blank">Medium</a>
-        <a href="https://scholar.google.com/citations?user=NNLK86QAAAAJ&hl=en" target="_blank">Google Scholar</a>
-      </div>
-
-      <!-- WHO AM I -->
-      <h2>Who Am I</h2>
-      <p>
-        I am a technology researcher and cloud architect passionate about building intelligent,
-        scalable, and self-healing cloud platforms. My work bridges <strong>AI, Kubernetes, and DevOps</strong>,
-        helping enterprises achieve operational excellence through automation and data-driven insights.
-      </p>
-
-      <!-- WHAT I WORK ON -->
-      <h2>What I Work On</h2>
-      <ul>
-        <li>Horizontal Pod Autoscaling for Large Language Models using custom metrics</li>
-        <li>AI-driven Platform Engineering and Intelligent Automation</li>
-        <li>Self-Healing Infrastructure and Multi-Agent Architectures</li>
-        <li>Cloud Security and Zero-Trust Implementations in AI Applications</li>
-      </ul>
-
-      <!-- PUBLICATIONS -->
-      <h2>Publications</h2>
-      <ul>
-        <li>
-          IEEE Paper — <em>Enhancing Kubernetes Auto-Scaling: Leveraging Metrics for Improved Workload Performance</em>
-        </li>
-        <li>
-          Research Article — <em>Performance Analysis of Horizontal Pod Autoscaler for LLM Applications</em> (In Progress)
-        </li>
-      </ul>
-
-      <!-- PATENTS -->
-      <h2>Patents</h2>
-      <ul>
-        <li><em>AI-driven Autoscaling Framework for Adaptive Cloud Systems</em> — Filed 2025</li>
-        <li><em>Self-Healing Autonomous Defender (SHADE) Framework</em> — Concept Submission</li>
-      </ul>
-
-      <!-- CONFERENCES -->
-      <h2>Conferences & Talks</h2>
-      <ul>
-        <li>Speaker — <em>Securing the Future: Navigating Challenges in MLSecOps</em></li>
-        <li>Speaker — <em>Achieving Zero Trust in AI Applications</em></li>
-        <li>Presenter — <em>Intelligent Automation in Platform Engineering with AI Agents</em></li>
-      </ul>
-
-      <!-- BLOGS -->
-      <h2>Blogs & Articles</h2>
-
-      <h3>🌐 Platform Engineering</h3>
-      <div class="blog-card">
-        <a href="https://dzone.com/articles/breaking-to-build-better-platform-engineering-with-chaos-experiments" target="_blank">
-          Breaking to Build Better: Platform Engineering with Chaos Experiments
-        </a>
-      </div>
-      <div class="blog-card">
-        <a href="https://dzone.com/articles/intelligent-automation-in-platform-engineering" target="_blank">
-          Intelligent Automation in Platform Engineering with AI Agents
-        </a>
-      </div>
-
-      <h3>☁️ Cloud Security & Compliance</h3>
-      <div class="blog-card">
-        <a href="https://dzone.com/articles/workload-protection-in-the-cloud-why-it-matters-more-than-ever" target="_blank">
-          Workload Protection in the Cloud: Why It Matters More Than Ever
-        </a>
-      </div>
-      <div class="blog-card">
-        <a href="https://dzone.com/articles/achieving-zero-trust-in-ai-applications" target="_blank">
-          Achieving Zero Trust in AI Applications: A Strategic Approach
-        </a>
-      </div>
-
-      <h3>🤖 AI & Auto-Scaling Research</h3>
-      <div class="blog-card">
-        <a href="https://dzone.com/articles/custom-metrics-hpa-for-llm-inference-scaling" target="_blank">
-          Autoscaling LLM Applications Using Custom Metrics in Kubernetes
-        </a>
-      </div>
-      <div class="blog-card">
-        <a href="https://dzone.com/articles/proactive-autoscaling-llm-kubernetes" target="_blank">
-          Proactive Auto-Scaling for LLMs Using Inference Metrics
-        </a>
-      </div>
+    <h3>🤖 AI & Auto-Scaling Research</h3>
+    <div class="blog-card">
+      <a href="https://dzone.com/articles/custom-metrics-hpa-for-llm-inference-scaling" target="_blank">
+        Autoscaling LLM Applications Using Custom Metrics in Kubernetes
+      </a>
+    </div>
+    <div class="blog-card">
+      <a href="https://dzone.com/articles/proactive-autoscaling-llm-kubernetes" target="_blank">
+        Proactive Auto-Scaling for LLMs Using Inference Metrics
+      </a>
     </div>
   </div>
 </body>
