@@ -10,6 +10,7 @@
       --ibm-blue: #054ada;
       --ibm-gray: #f5f7fa;
       --ibm-dark: #1d1d1d;
+      --ibm-accent: #2e8bff;
     }
 
     body {
@@ -23,7 +24,7 @@
     .container {
       display: flex;
       flex-wrap: wrap;
-      align-items: center;
+      align-items: flex-start;
       justify-content: center;
       min-height: 100vh;
       padding: 60px 20px;
@@ -31,7 +32,7 @@
     }
 
     .photo {
-      flex: 1 1 300px;
+      flex: 1 1 280px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -48,7 +49,7 @@
     }
 
     .content {
-      flex: 2 1 500px;
+      flex: 2 1 600px;
       background-color: white;
       padding: 40px;
       border-radius: 12px;
@@ -61,8 +62,16 @@
     }
 
     h2 {
-      color: var(--ibm-dark);
-      margin-bottom: 10px;
+      color: var(--ibm-accent);
+      margin-top: 30px;
+      border-bottom: 2px solid var(--ibm-accent);
+      display: inline-block;
+      padding-bottom: 5px;
+    }
+
+    ul {
+      list-style-type: square;
+      padding-left: 20px;
     }
 
     .links a {
@@ -74,6 +83,25 @@
     }
 
     .links a:hover {
+      text-decoration: underline;
+    }
+
+    .blog-card {
+      background-color: var(--ibm-gray);
+      border-left: 4px solid var(--ibm-blue);
+      padding: 10px 15px;
+      margin-bottom: 12px;
+      border-radius: 8px;
+    }
+
+    .blog-card a {
+      text-decoration: none;
+      color: var(--ibm-dark);
+      font-weight: 600;
+    }
+
+    .blog-card a:hover {
+      color: var(--ibm-blue);
       text-decoration: underline;
     }
 
@@ -89,28 +117,101 @@
     }
   </style>
 </head>
+
 <body>
   <div class="container">
     <div class="photo">
-      <!-- Replace "joyce.jpg" with your uploaded image filename -->
-      <img src="ProfilePhoto.jpg" alt="Josephine Eskaline Joyce" />
+      <img src="joyce.jpg" alt="Josephine Eskaline Joyce" />
     </div>
 
     <div class="content">
       <h1>Josephine Eskaline Joyce</h1>
-      <h2>Cloud Architect @ IBM | AI & Platform Engineering Researcher</h2>
+      <h3>Cloud Architect @ IBM | AI & Platform Engineering Researcher</h3>
+
+      <!-- WHO AM I -->
+      <h2>Who Am I</h2>
       <p>
-        I specialize in building scalable, secure, and intelligent cloud-native systems.
-        My work focuses on Kubernetes-based auto-scaling for large language models (LLMs),
-        self-healing infrastructure, and AI-driven platform engineering.
+        I am a technology researcher and cloud architect passionate about building intelligent,
+        scalable, and self-healing cloud platforms. My work bridges <strong>AI, Kubernetes, and DevOps</strong>
+        — helping enterprises achieve operational excellence through automation and data-driven insights.
       </p>
 
-      <p>
-        I enjoy exploring the intersection of <strong>AI, automation, and DevOps</strong>,
-        authoring blogs, and speaking at technology conferences about cloud architecture,
-        platform resilience, and generative AI applications.
-      </p>
+      <!-- WHAT I WORK ON -->
+      <h2>What I Work On</h2>
+      <ul>
+        <li>Horizontal Pod Autoscaling for Large Language Models using custom metrics</li>
+        <li>AI-driven Platform Engineering and Intelligent Automation</li>
+        <li>Self-Healing Infrastructure and Multi-Agent Architectures</li>
+        <li>Cloud Security and Zero-Trust Implementations in AI Applications</li>
+      </ul>
 
+      <!-- PUBLICATIONS -->
+      <h2>Publications</h2>
+      <ul>
+        <li>
+          IEEE Paper — <em>Enhancing Kubernetes Auto-Scaling: Leveraging Metrics for Improved Workload Performance</em>
+        </li>
+        <li>
+          Research Article — <em>Performance Analysis of Horizontal Pod Autoscaler for LLM Applications</em> (In Progress)
+        </li>
+      </ul>
+
+      <!-- PATENTS -->
+      <h2>Patents</h2>
+      <ul>
+        <li><em>AI-driven Autoscaling Framework for Adaptive Cloud Systems</em> — Filed 2025</li>
+        <li><em>Self-Healing Autonomous Defender (SHADE) Framework</em> — Concept Submission</li>
+      </ul>
+
+      <!-- CONFERENCES -->
+      <h2>Conferences & Talks</h2>
+      <ul>
+        <li>Speaker — <em>Securing the Future: Navigating Challenges in MLSecOps</em></li>
+        <li>Speaker — <em>Achieving Zero Trust in AI Applications</em></li>
+        <li>Presenter — <em>Intelligent Automation in Platform Engineering with AI Agents</em></li>
+      </ul>
+
+      <!-- BLOGS -->
+      <h2>Blogs & Articles</h2>
+
+      <h3>🌐 Platform Engineering</h3>
+      <div class="blog-card">
+        <a href="https://dzone.com/articles/breaking-to-build-better-platform-engineering-with-chaos-experiments" target="_blank">
+          Breaking to Build Better: Platform Engineering with Chaos Experiments
+        </a>
+      </div>
+      <div class="blog-card">
+        <a href="https://dzone.com/articles/intelligent-automation-in-platform-engineering" target="_blank">
+          Intelligent Automation in Platform Engineering with AI Agents
+        </a>
+      </div>
+
+      <h3>☁️ Cloud Security & Compliance</h3>
+      <div class="blog-card">
+        <a href="https://dzone.com/articles/workload-protection-in-the-cloud-why-it-matters-more-than-ever" target="_blank">
+          Workload Protection in the Cloud: Why It Matters More Than Ever
+        </a>
+      </div>
+      <div class="blog-card">
+        <a href="https://dzone.com/articles/achieving-zero-trust-in-ai-applications" target="_blank">
+          Achieving Zero Trust in AI Applications: A Strategic Approach
+        </a>
+      </div>
+
+      <h3>🤖 AI & Auto-Scaling Research</h3>
+      <div class="blog-card">
+        <a href="https://dzone.com/articles/custom-metrics-hpa-for-llm-inference-scaling" target="_blank">
+          Autoscaling LLM Applications Using Custom Metrics in Kubernetes
+        </a>
+      </div>
+      <div class="blog-card">
+        <a href="https://dzone.com/articles/proactive-autoscaling-llm-kubernetes" target="_blank">
+          Proactive Auto-Scaling for LLMs Using Inference Metrics
+        </a>
+      </div>
+
+      <!-- LINKS -->
+      <h2>Connect With Me</h2>
       <div class="links">
         <a href="https://github.com/jojustin" target="_blank">GitHub</a>
         <a href="https://www.linkedin.com/in/josephine-eskaline-joyce" target="_blank">LinkedIn</a>
