@@ -215,10 +215,18 @@
             }
         }
 
-        .wordcloud-wrapper {
+        /* rotating wordcloud */
+        /* .wordcloud-wrapper {
             margin-top: 25px;
             animation: rotateCloud 30s linear infinite;
             transform-origin: center;
+        } */
+
+        .wordcloud-wrapper {
+            margin-top: 25px;
+            opacity: 0;
+            animation: fadeInCloud 2s ease-in-out;
+            animation-fill-mode: forwards;
         }
 
         a {
@@ -236,7 +244,18 @@
             /* more breathing room between sections */
         }
 
-        @keyframes rotateCloud {
+        @keyframes fadeInCloud {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* only if you need rotate word cloud */
+        /* @keyframes rotateCloud {
             0% {
                 transform: rotate(0deg);
             }
@@ -244,7 +263,7 @@
             100% {
                 transform: rotate(360deg);
             }
-        }
+        } */
 
         /* Optional: pause rotation on hover */
         .wordcloud-wrapper:hover {
