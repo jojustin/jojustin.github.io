@@ -1,9 +1,7 @@
 import requests, re, json, os, collections
 from bs4 import BeautifulSoup
 import os
-from requests_html import HTMLSession
-from playwright.sync_api import sync_playwright
-import time, re
+import time
 
 # ---------------------------------
 # CONFIGURATION
