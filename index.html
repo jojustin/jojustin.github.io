@@ -11,38 +11,46 @@
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const words = [
-                ['Cloud Architecture', 40],
-                ['Platform Engineering', 35],
+                ['Cloud Architecture', 35],
+                ['Platform Engineering', 30],
                 ['Zero Trust', 20],
-                ['Kubernetes', 34],
-                ['DevSecOps', 28],
-                ['IaC', 30],
-                ['AI Automation', 26],
-                ['LLM Performance', 22],
-                ['Auto-Scaling', 27],
-                ['Cloud Security', 38]
+                ['Kubernetes', 25],
+                ['DevSecOps', 24],
+                ['IaC', 28],
+                ['AI Automation', 22],
+                ['LLM Performance', 18],
+                ['Auto-Scaling', 20],
+                ['Cloud Security', 26],
+                ['Self-Healing', 20]
             ];
 
             const canvas = document.getElementById('wordCanvas');
+
             if (canvas) {
+                // Start invisible
+                canvas.style.opacity = 0;
+
+                // Draw the word cloud
                 WordCloud(canvas, {
                     list: words,
                     gridSize: 4,
-                    weightFactor: 1.8,
+                    weightFactor: 1.3, // 🔹 smaller text size (try 1.0–1.5)
                     fontFamily: 'Helvetica, Arial, sans-serif',
                     color: 'white',
                     backgroundColor: '#054ada',
                     rotateRatio: 0.2,
                     rotationSteps: 2,
                     shape: 'circle',
-                    drawOutOfBound: false
                 });
+
+                // Fade-in animation after rendering
+                setTimeout(() => {
+                    canvas.style.transition = 'opacity 2s ease';
+                    canvas.style.opacity = 1;
+                }, 400);
             }
         });
     </script>
-
-
-
     <style>
         :root {
             --ibm-blue: #054ada;
@@ -205,19 +213,24 @@
             animation-play-state: paused;
         }
 
-/* Fade-in animation for the whole word cloud */
-.wordcloud-wrapper {
-  margin-top: 25px;
-  animation: rotateCloud 50s linear infinite, fadeInCloud 2s ease-in-out;
-  transform-origin: center;
-  opacity: 0;
-  animation-fill-mode: forwards;
-}
+        /* Fade-in animation for the whole word cloud */
+        .wordcloud-wrapper {
+            margin-top: 25px;
+            animation: rotateCloud 50s linear infinite, fadeInCloud 2s ease-in-out;
+            transform-origin: center;
+            opacity: 0;
+            animation-fill-mode: forwards;
+        }
 
-@keyframes fadeInCloud {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}        
+        @keyframes fadeInCloud {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
     </style>
 </head>
 
@@ -238,7 +251,7 @@
 
         <!-- 🌀 Rotating Word Cloud -->
         <div class="wordcloud-wrapper">
-            <canvas id="wordCanvas" width="280" height="280"></canvas>
+            <canvas id="wordCanvas" width="250" height="250"></canvas>
         </div>
     </div>
 
