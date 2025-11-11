@@ -5,6 +5,9 @@ on:
   schedule:
     - cron: "0 9 * * 1"     # Every Monday 9 AM UTC
 
+permissions:
+  contents: write            # 👈 critical for allowing commits
+
 jobs:
   update:
     runs-on: ubuntu-latest
