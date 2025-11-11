@@ -56,16 +56,16 @@
             --ibm-accent: #2e8bff;
         }
 
-        body {
-            margin: 0;
-            font-family: "Helvetica Neue", Arial, sans-serif;
-            background-color: var(--ibm-gray);
-            color: var(--ibm-dark);
-            line-height: 1.6;
-            display: flex;
-            flex-direction: row;
-            min-height: 100vh;
-        }
+body {
+  margin: 0;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  background-color: white; /* changed from var(--ibm-gray) */
+  color: var(--ibm-dark);
+  line-height: 1.6;
+  display: flex;
+  flex-direction: row;
+  min-height: 100vh;
+}
 
         /* ===== LEFT SIDEBAR ===== */
         .sidebar {
@@ -101,7 +101,7 @@
         .sidebar h1 {
             margin: 0;
             font-size: 20px;
-  font-weight: 700;
+            font-weight: 700;
             text-align: center;
         }
 
@@ -129,7 +129,7 @@
             font-weight: 600;
             margin: 6px 0;
             font-size: 14px;
-  letter-spacing: 0.3px;
+            letter-spacing: 0.3px;
             transition: opacity 0.3s;
         }
 
@@ -145,14 +145,13 @@
         }
 
         /* ===== RIGHT CONTENT ===== */
-        .content {
-            padding: 60px 90px; /* slightly wider for readability */
-  max-width: 950px;
-  margin: 0 auto;
-            flex: 1;
-            background-color: white;
-            overflow-y: auto;
-        }
+.content {
+  flex: 1;
+  padding: 60px 90px;
+  background-color: white; /* keeps main clean white */
+  overflow-y: auto;
+  box-shadow: none; /* remove any subtle edge shadows */
+}
 
         h2 {
             color: var(--ibm-accent);
@@ -209,17 +208,21 @@
             animation: rotateCloud 30s linear infinite;
             transform-origin: center;
         }
+
         a {
-  color: var(--ibm-accent);
-  text-decoration: none;
-}
-a:hover {
-  text-decoration: underline;
-  color: #0062ff;
-}
-h2 {
-  margin-top: 60px; /* more breathing room between sections */
-}
+            color: var(--ibm-accent);
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color: #0062ff;
+        }
+
+        h2 {
+            margin-top: 60px;
+            /* more breathing room between sections */
+        }
 
         @keyframes rotateCloud {
             0% {
