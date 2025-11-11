@@ -6,36 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>About Me – Josephine Eskaline Joyce</title>
 
-    <!-- Word Cloud Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/wordcloud2.js/1.2.2/wordcloud2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wordcloud2.js/1.2.2/wordcloud2.min.js"></script>
 
-    <script>
-        const words = [
-            ['Cloud Architecture', 40],
-            ['Platform Engineering', 35],
-            ['Zero Trust', 25],
-            ['Kubernetes', 30],
-            ['DevSecOps', 28],
-            ['IaC', 32],
-            ['AI Automation', 26],
-            ['LLM Performance', 22],
-            ['Auto-Scaling', 27],
-            ['Cloud Security', 33],
-            ['Self-Healing', 24]
-        ];
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const words = [
+      ['Cloud Architecture', 40],
+      ['Platform Engineering', 35],
+      ['Zero Trust', 25],
+      ['Kubernetes', 30],
+      ['DevSecOps', 28],
+      ['IaC', 32],
+      ['AI Automation', 26],
+      ['LLM Performance', 22],
+      ['Auto-Scaling', 27],
+      ['Cloud Security', 33],
+      ['Self-Healing', 24]
+    ];
 
-        WordCloud(document.getElementById('wordCanvas'), {
-            list: words,
-            gridSize: 6,
-            weightFactor: 3,
-            fontFamily: 'Helvetica, Arial, sans-serif',
-            color: 'white',
-            backgroundColor: '#054ada',
-            rotateRatio: 0.3,
-            rotationSteps: 2,
-            shape: 'circle'
-        });
-    </script>
+    const canvas = document.getElementById('wordCanvas');
+    if (canvas) {
+      WordCloud(canvas, {
+        list: words,
+        gridSize: 6,
+        weightFactor: 3,
+        fontFamily: 'Helvetica, Arial, sans-serif',
+        color: 'white',
+        backgroundColor: '#054ada',
+        rotateRatio: 0.3,
+        rotationSteps: 2,
+        shape: 'circle'
+      });
+    } else {
+      console.warn("Word cloud canvas not found!");
+    }
+  });
+</script>
+
 
 
     <style>
