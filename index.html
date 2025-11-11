@@ -1,292 +1,376 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>About Me – Josephine Eskaline Joyce</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Me – Josephine Eskaline Joyce</title>
 
-  <!-- Word Cloud Library -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/wordcloud2.js/1.2.2/wordcloud2.min.js"></script>
+    <!-- Word Cloud Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wordcloud2.js/1.2.2/wordcloud2.min.js"></script>
 
-  <style>
-    :root {
-      --ibm-blue: #054ada;
-      --ibm-gray: #f5f7fa;
-      --ibm-dark: #1d1d1d;
-      --ibm-accent: #2e8bff;
-    }
+    <script>
+        const words = [
+            ['Cloud Architecture', 40],
+            ['Platform Engineering', 35],
+            ['Zero Trust', 25],
+            ['Kubernetes', 30],
+            ['DevSecOps', 28],
+            ['IaC', 32],
+            ['AI Automation', 26],
+            ['LLM Performance', 22],
+            ['Auto-Scaling', 27],
+            ['Cloud Security', 33],
+            ['Self-Healing', 24]
+        ];
 
-    body {
-      margin: 0;
-      font-family: "Helvetica Neue", Arial, sans-serif;
-      background-color: var(--ibm-gray);
-      color: var(--ibm-dark);
-      line-height: 1.6;
-      display: flex;
-      flex-direction: row;
-      min-height: 100vh;
-    }
+        WordCloud(document.getElementById('wordCanvas'), {
+            list: words,
+            gridSize: 6,
+            weightFactor: 3,
+            fontFamily: 'Helvetica, Arial, sans-serif',
+            color: 'white',
+            backgroundColor: '#054ada',
+            rotateRatio: 0.3,
+            rotationSteps: 2,
+            shape: 'circle'
+        });
+    </script>
 
-    /* ===== LEFT SIDEBAR ===== */
-    .sidebar {
-      position: sticky;
-      top: 0;
-      flex: 0 0 320px;
-      background: var(--ibm-blue);
-      color: white;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      padding: 40px 20px;
-      box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
-    }
 
-    .sidebar img {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      border: 4px solid white;
-      object-fit: cover;
-      box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
-      margin-bottom: 25px;
-      transition: transform 0.3s ease-in-out;
-    }
+    <style>
+        :root {
+            --ibm-blue: #054ada;
+            --ibm-gray: #f5f7fa;
+            --ibm-dark: #1d1d1d;
+            --ibm-accent: #2e8bff;
+        }
 
-    .sidebar img:hover {
-      transform: scale(1.05);
-    }
+        body {
+            margin: 0;
+            font-family: "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--ibm-gray);
+            color: var(--ibm-dark);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: row;
+            min-height: 100vh;
+        }
 
-    .sidebar h1 {
-      margin: 0;
-      font-size: 22px;
-      text-align: center;
-    }
+        /* ===== LEFT SIDEBAR ===== */
+        .sidebar {
+            position: sticky;
+            top: 0;
+            flex: 0 0 320px;
+            background: var(--ibm-blue);
+            color: white;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 40px 20px;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+        }
 
-    .sidebar h3 {
-      font-weight: normal;
-      text-align: center;
-      font-size: 14px;
-      color: #cbd8ff;
-      margin-top: 5px;
-      margin-bottom: 25px;
-    }
+        .sidebar img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            border: 4px solid white;
+            object-fit: cover;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
+            margin-bottom: 25px;
+            transition: transform 0.3s ease-in-out;
+        }
 
-    .sidebar .links {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+        .sidebar img:hover {
+            transform: scale(1.05);
+        }
 
-    .sidebar .links a {
-      color: white;
-      text-decoration: none;
-      font-weight: 600;
-      margin: 6px 0;
-      transition: opacity 0.3s;
-    }
+        .sidebar h1 {
+            margin: 0;
+            font-size: 22px;
+            text-align: center;
+        }
 
-    .sidebar .links a:hover {
-      opacity: 0.7;
-    }
+        .sidebar h3 {
+            font-weight: normal;
+            text-align: center;
+            font-size: 14px;
+            color: #cbd8ff;
+            margin-top: 5px;
+            margin-bottom: 25px;
+        }
 
-    /* ===== RIGHT CONTENT ===== */
-    .content {
-      flex: 1;
-      padding: 60px 80px;
-      background-color: white;
-      overflow-y: auto;
-    }
+        .sidebar .links {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-    h2 {
-      color: var(--ibm-accent);
-      margin-top: 40px;
-      border-bottom: 2px solid var(--ibm-accent);
-      display: inline-block;
-      padding-bottom: 5px;
-    }
+        .sidebar .links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 6px 0;
+            transition: opacity 0.3s;
+        }
 
-    ul {
-      list-style-type: square;
-      padding-left: 20px;
-    }
+        .sidebar .links a:hover {
+            opacity: 0.7;
+        }
 
-    .blog-card {
-      background-color: var(--ibm-gray);
-      border-left: 4px solid var(--ibm-blue);
-      padding: 10px 15px;
-      margin-bottom: 12px;
-      border-radius: 8px;
-    }
+        /* ===== RIGHT CONTENT ===== */
+        .content {
+            flex: 1;
+            padding: 60px 80px;
+            background-color: white;
+            overflow-y: auto;
+        }
 
-    .blog-card a {
-      text-decoration: none;
-      color: var(--ibm-dark);
-      font-weight: 600;
-    }
+        h2 {
+            color: var(--ibm-accent);
+            margin-top: 40px;
+            border-bottom: 2px solid var(--ibm-accent);
+            display: inline-block;
+            padding-bottom: 5px;
+        }
 
-    .blog-card a:hover {
-      color: var(--ibm-blue);
-      text-decoration: underline;
-    }
+        ul {
+            list-style-type: square;
+            padding-left: 20px;
+        }
 
-    @media (max-width: 900px) {
-      body {
-        flex-direction: column;
-      }
+        .blog-card {
+            background-color: var(--ibm-gray);
+            border-left: 4px solid var(--ibm-blue);
+            padding: 10px 15px;
+            margin-bottom: 12px;
+            border-radius: 8px;
+        }
 
-      .sidebar {
-        position: relative;
-        flex: none;
-        width: 100%;
-        height: auto;
-        box-shadow: none;
-      }
+        .blog-card a {
+            text-decoration: none;
+            color: var(--ibm-dark);
+            font-weight: 600;
+        }
 
-      .content {
-        padding: 30px 20px;
-      }
-    }
-  </style>
+        .blog-card a:hover {
+            color: var(--ibm-blue);
+            text-decoration: underline;
+        }
+
+        @media (max-width: 900px) {
+            body {
+                flex-direction: column;
+            }
+
+            .sidebar {
+                position: relative;
+                flex: none;
+                width: 100%;
+                height: auto;
+                box-shadow: none;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+        }
+
+        .wordcloud-wrapper {
+            margin-top: 25px;
+            animation: rotateCloud 30s linear infinite;
+            transform-origin: center;
+        }
+
+        @keyframes rotateCloud {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Optional: pause rotation on hover */
+        .wordcloud-wrapper:hover {
+            animation-play-state: paused;
+        }
+    </style>
 </head>
 
 <body>
-  <!-- LEFT SIDEBAR -->
-  <div class="sidebar">
-    <img src="ProfilePhoto.jpg" alt="Josephine Eskaline Joyce" />
-    <h1>Josephine Eskaline Joyce</h1>
-    <h3>Cloud Architect @ IBM<br>AI & Platform Engineering Researcher</h3>
+    <!-- LEFT SIDEBAR -->
+    <div class="sidebar">
+        <img src="ProfilePhoto.jpg" alt="Josephine Eskaline Joyce" />
+        <h1>Josephine Eskaline Joyce</h1>
+        <h3>Cloud Architect @ IBM<br>AI & Platform Engineering Researcher</h3>
 
-    <div class="links">
-      <a href="https://github.com/jojustin" target="_blank">GitHub</a>
-      <a href="https://www.linkedin.com/in/josephine-joyce/" target="_blank">LinkedIn</a>
-      <a href="https://dzone.com/users/jojustin" target="_blank">DZone</a>
-      <!-- <a href="https://medium.com/@jojustin" target="_blank">Medium</a> -->
-      <a href="https://scholar.google.com/citations?user=NNLK86QAAAAJ&hl=en" target="_blank">Google Scholar</a>
+        <div class="links">
+            <a href="https://github.com/jojustin" target="_blank">GitHub</a>
+            <a href="https://www.linkedin.com/in/josephine-joyce/" target="_blank">LinkedIn</a>
+            <a href="https://dzone.com/users/jojustin" target="_blank">DZone</a>
+            <!-- <a href="https://medium.com/@jojustin" target="_blank">Medium</a> -->
+            <a href="https://scholar.google.com/citations?user=NNLK86QAAAAJ&hl=en" target="_blank">Google Scholar</a>
+        </div>
+
+        <!-- 🌀 Rotating Word Cloud -->
+        <div class="wordcloud-wrapper">
+            <canvas id="wordCanvas" width="250" height="250"></canvas>
+        </div>
     </div>
 
-    <!-- Word Cloud inside Sidebar -->
-    <canvas id="wordCanvas" width="250" height="250" style="margin-top:20px;"></canvas>
-  </div>
+    <!-- RIGHT CONTENT -->
+    <div class="content">
+        <!-- WHO AM I -->
+        <h2>About Me</h2>
+        <p>
+            I’m <strong>Josephine Eskaline Joyce, a STSM (Chief Architect) at IBM</strong> and an influential thought
+            leader in <strong>cloud-native technologies, platform engineering, and cloud security</strong>.
+            With over <strong>24 years of experience</strong>, I’ve been driving innovation in <strong>cloud
+                architecture, Infrastructure as Code (IaC), AI-driven automation, and resilient DevOps
+                practices</strong>.
+        </p>
+        I’m an <strong>active technology blogger</strong>, passionate about translating complex cloud and AI concepts
+        into practical insights. My articles on <strong>Cloud Security, Cloud Architectures, Platform Engineering, and
+            event-driven automation</strong> have been featured in leading publications, including the </strong><a
+            href="https://dzone.com/trendreports/enterprise-security-2" target="_blank">DZone Enterprise Security Trend
+            Report (2024)</a></strong>, where I was recognized as a </strong><a href="https://dzone.com/security"
+            target="_blank">DZone Core Expert in Security</a></strong>.
+        </p>
+        Currently, I’m pursuing my <strong>Ph.D. in Cloud Computing at Christ University, Bangalore</strong>, where my
+        research focuses on <strong>AI-driven performance prediction for LLM applications</strong>. My academic work
+        bridges research and practice through studies on Kubernetes autoscaling for AI workloads, microservices
+        scalability, and cloud resilience.
+        </p>
+        I hold patents in <strong>push notifications, cloud security, and infrastructure automation</strong>. I’m deeply
+        committed to mentoring and community engagement, inspiring early-career professionals and students to embrace
+        <strong>engineering excellence and innovation</strong> through a blend of <strong>technical depth, academic
+            rigor, and inventive thinking</strong>.
+        </p>
 
-  <!-- RIGHT CONTENT -->
-  <div class="content">
-    <!-- WHO AM I -->
-    <h2>About Me</h2>
-    <p>
-    I’m <strong>Josephine Eskaline Joyce, a STSM (Chief Architect) at IBM</strong> and an influential thought leader in <strong>cloud-native technologies, platform engineering, and cloud security</strong>.
-    With over <strong>24 years of experience</strong>, I’ve been driving innovation in <strong>cloud architecture, Infrastructure as Code (IaC), AI-driven automation, and resilient DevOps practices</strong>.
-    </p>
-    I’m an <strong>active technology blogger</strong>, passionate about translating complex cloud and AI concepts into practical insights. My articles on <strong>Cloud Security, Cloud Architectures, Platform Engineering, and event-driven automation</strong> have been featured in leading publications, including the </strong><a href="https://dzone.com/trendreports/enterprise-security-2" target="_blank">DZone Enterprise Security Trend Report (2024)</a></strong>, where I was recognized as a </strong><a href="https://dzone.com/security" target="_blank">DZone Core Expert in Security</a></strong>.
-    </p>
-    Currently, I’m pursuing my <strong>Ph.D. in Cloud Computing at Christ University, Bangalore</strong>, where my research focuses on <strong>AI-driven performance prediction for LLM applications</strong>. My academic work bridges research and practice through studies on Kubernetes autoscaling for AI workloads, microservices scalability, and cloud resilience.
-    </p>
-    I hold patents in <strong>push notifications, cloud security, and infrastructure automation</strong>. I’m deeply committed to mentoring and community engagement, inspiring early-career professionals and students to embrace <strong>engineering excellence and innovation</strong> through a blend of <strong>technical depth, academic rigor, and inventive thinking</strong>.
-    </p>
-
-    <!-- WHAT I WORK ON -->
-    <h2>What I Work On</h2>
-    <ul>
-        <li>Cloud-Native Architectures and Infrastructure as Code (IaC)</li>
-        <li>Platform Engineering and Intelligent Automation</li>
-        <li>Cloud Security and Zero-Trust Implementations for Enterprise Applications</li>
-        <li>Performance Engineering and Auto-Scaling in Large Language Model (LLM) Workloads</li>
-    </ul>
+        <!-- WHAT I WORK ON -->
+        <h2>What I Work On</h2>
+        <ul>
+            <li>Cloud-Native Architectures and Infrastructure as Code (IaC)</li>
+            <li>Platform Engineering and Intelligent Automation</li>
+            <li>Cloud Security and Zero-Trust Implementations for Enterprise Applications</li>
+            <li>Performance Engineering and Auto-Scaling in Large Language Model (LLM) Workloads</li>
+        </ul>
 
 
-    <!-- PUBLICATIONS -->
-    <h2>Publications</h2>
-    <ul>
-        <li>
-        IEEE Paper — <em><a href="https://ieeexplore.ieee.org/document/11187640" target="_blank">Secure by Design: Strategic Approaches to Infrastructure as Code</a></em>
-        </li>
-        <li>
-        Springer book chapter — <em><a href="https://link.springer.com/chapter/10.1007/978-981-97-4540-1_3" target="_blank">Maximizing Efficiency: Unveiling the Potential of Kubernetes Metrics</a></em>
-        </li>
-        <li>
-        IEEE Paper — <em><a href="https://ieeexplore.ieee.org/document/10624986" target="_blank">DevOps Dynamics: Tools Driving Continuous Integration and Deployment</a></em>
-        </li>
-        <li>
-        IEEE Paper — <em><a href="https://ieeexplore.ieee.org/document/10426170" target="_blank">Enhancing Kubernetes Auto-Scaling: Leveraging Metrics for Improved Workload Performance</a></em>
-        </li>
-        <li>
-        IEEE Paper — <em><a href="https://ieeexplore.ieee.org/document/9955300" target="_blank">Reinforcement Learning based Autoscaling for Kafka-centric Microservices in Kubernetes</a></em>
-        </li>
-    </ul>
+        <!-- PUBLICATIONS -->
+        <h2>Publications</h2>
+        <ul>
+            <li>
+                IEEE Paper — <em><a href="https://ieeexplore.ieee.org/document/11187640" target="_blank">Secure by
+                        Design: Strategic Approaches to Infrastructure as Code</a></em>
+            </li>
+            <li>
+                Springer book chapter — <em><a href="https://link.springer.com/chapter/10.1007/978-981-97-4540-1_3"
+                        target="_blank">Maximizing Efficiency: Unveiling the Potential of Kubernetes Metrics</a></em>
+            </li>
+            <li>
+                IEEE Paper — <em><a href="https://ieeexplore.ieee.org/document/10624986" target="_blank">DevOps
+                        Dynamics: Tools Driving Continuous Integration and Deployment</a></em>
+            </li>
+            <li>
+                IEEE Paper — <em><a href="https://ieeexplore.ieee.org/document/10426170" target="_blank">Enhancing
+                        Kubernetes Auto-Scaling: Leveraging Metrics for Improved Workload Performance</a></em>
+            </li>
+            <li>
+                IEEE Paper — <em><a href="https://ieeexplore.ieee.org/document/9955300" target="_blank">Reinforcement
+                        Learning based Autoscaling for Kafka-centric Microservices in Kubernetes</a></em>
+            </li>
+        </ul>
 
-    <!-- PATENTS -->
-    <h2>Patents</h2>
-    <ul>
-        <li><em><a href="https://patents.google.com/patent/US11971805B2/en" target="_blank">Intelligent automated feature toggle system using annotations</a></em></li>
-        <li><em><a href="https://patents.google.com/patent/US20230269268A1/en" target="_blank">Channel to report push notifications as spam</a></em></li>
-        <li><em><a href="https://patents.google.com/patent/US20200409681A1/en" target="_blank">Dynamic message embedded within application new feature rollout</a></em></li>
-        <li><em><a href="https://patents.google.com/patent/US20190333075A1/en" target="_blank">Calculating and displaying implicit popularity of products</a></em></li>
-        <li><em><a href="https://patents.google.com/patent/US11443026B2/en" target="_blank">Synchronizing data across multiple instances of an application in a cloud</a></em></li>
-        <li><em><a href="https://patents.google.com/patent/US8626888B2/en" target="_blank">Dynamic control of autonomic management of a data center</a></em></li>
-        <li><em><a href="https://patents.google.com/patent/US10887414B2/en" target="_blank">Theme-based push notifications</a></em></li>
-      <li><em><a href="https://patents.google.com/patent/US10834219B1/en" target="_blank">Intelligent distribution of push notifications</a></em></li>
-      <li><em><a href="https://patents.google.com/patent/US10460031B2/en" target="_blank">Generating structured meeting reports through semantic correlation of unstructured voice and text data</a></em></li>
-      <li><em><a href="https://patents.google.com/patent/US10079719B2/en" target="_blank">Automatically tuning middleware in a mobilefirst platform running in a docker container infrastructure</a></em></li>
-      <li><em><a href="https://patents.google.com/patent/US8626888B2/en" target="_blank">Dynamic control of autonomic management of a data center</a></em></li>
-    </ul>
+        <!-- PATENTS -->
+        <h2>Patents</h2>
+        <ul>
+            <li><em><a href="https://patents.google.com/patent/US11971805B2/en" target="_blank">Intelligent automated
+                        feature toggle system using annotations</a></em></li>
+            <li><em><a href="https://patents.google.com/patent/US20230269268A1/en" target="_blank">Channel to report
+                        push notifications as spam</a></em></li>
+            <li><em><a href="https://patents.google.com/patent/US20200409681A1/en" target="_blank">Dynamic message
+                        embedded within application new feature rollout</a></em></li>
+            <li><em><a href="https://patents.google.com/patent/US20190333075A1/en" target="_blank">Calculating and
+                        displaying implicit popularity of products</a></em></li>
+            <li><em><a href="https://patents.google.com/patent/US11443026B2/en" target="_blank">Synchronizing data
+                        across multiple instances of an application in a cloud</a></em></li>
+            <li><em><a href="https://patents.google.com/patent/US8626888B2/en" target="_blank">Dynamic control of
+                        autonomic management of a data center</a></em></li>
+            <li><em><a href="https://patents.google.com/patent/US10887414B2/en" target="_blank">Theme-based push
+                        notifications</a></em></li>
+            <li><em><a href="https://patents.google.com/patent/US10834219B1/en" target="_blank">Intelligent distribution
+                        of push notifications</a></em></li>
+            <li><em><a href="https://patents.google.com/patent/US10460031B2/en" target="_blank">Generating structured
+                        meeting reports through semantic correlation of unstructured voice and text data</a></em></li>
+            <li><em><a href="https://patents.google.com/patent/US10079719B2/en" target="_blank">Automatically tuning
+                        middleware in a mobilefirst platform running in a docker container infrastructure</a></em></li>
+            <li><em><a href="https://patents.google.com/patent/US8626888B2/en" target="_blank">Dynamic control of
+                        autonomic management of a data center</a></em></li>
+        </ul>
 
-    <!-- CONFERENCES -->
-    <!-- <h2>Conferences & Talks</h2>
+        <!-- CONFERENCES -->
+        <!-- <h2>Conferences & Talks</h2>
     <ul>
       <li>Speaker — <em>Securing the Future: Navigating Challenges in MLSecOps</em></li>
       <li>Speaker — <em>Achieving Zero Trust in AI Applications</em></li>
       <li>Presenter — <em>Intelligent Automation in Platform Engineering with AI Agents</em></li>
     </ul> -->
 
-    <!-- BLOGS -->
-    <h2>Blogs & Articles</h2>
+        <!-- BLOGS -->
+        <h2>Blogs & Articles</h2>
 
-    <h3>🌐 Platform Engineering</h3>
-    <div class="blog-card">
-      <a href="https://dzone.com/articles/developer-onboarding-to-platform" target="_blank">
-        A Developer’s Experience of Onboarding to a Platform
-      </a>
-    </div>    
-    <div class="blog-card">
-      <a href="https://dzone.com/articles/deployable-architecture-scalable-platform-engineering" target="_blank">
-        Deployable Architecture: The Cornerstone of Scalable Platform Engineering
-      </a>
-    </div>    
-    <div class="blog-card">
-      <a href="https://dzone.com/articles/evolving-golden-paths-upgrades-without-disruption" target="_blank">
-        Evolving Golden Paths: Upgrades Without Disruption
-      </a>
-    </div>    
-    <div class="blog-card">
-      <a href="https://dzone.com/articles/golden-paths-idps" target="_blank">
-        Golden Paths in IDPs: From Developer Chaos to Clarity
-      </a>
-    </div>
-    <div class="blog-card">
-      <a href="https://dzone.com/articles/ibm-cloud-app-configuration-idp" target="_blank">
-        Optimizing Your IDP Using Centralized Configuration Management With IBM Cloud App Configuration: A Complete Guide
-      </a>
-    </div>    
-    <div class="blog-card">
-      <a href="https://dzone.com/articles/platform-engineering-chaos-experiments-resilience" target="_blank">
-        Breaking to Build Better: Platform Engineering With Chaos Experiments
-      </a>
-    </div>
-    <div class="blog-card">
-      <a href="https://dzone.com/articles/platform-engineering-for-cloud-teams" target="_blank">
-        Platform Engineering for Cloud Teams
-      </a>
-    </div>
+        <h3>🌐 Platform Engineering</h3>
+        <div class="blog-card">
+            <a href="https://dzone.com/articles/developer-onboarding-to-platform" target="_blank">
+                A Developer’s Experience of Onboarding to a Platform
+            </a>
+        </div>
+        <div class="blog-card">
+            <a href="https://dzone.com/articles/deployable-architecture-scalable-platform-engineering" target="_blank">
+                Deployable Architecture: The Cornerstone of Scalable Platform Engineering
+            </a>
+        </div>
+        <div class="blog-card">
+            <a href="https://dzone.com/articles/evolving-golden-paths-upgrades-without-disruption" target="_blank">
+                Evolving Golden Paths: Upgrades Without Disruption
+            </a>
+        </div>
+        <div class="blog-card">
+            <a href="https://dzone.com/articles/golden-paths-idps" target="_blank">
+                Golden Paths in IDPs: From Developer Chaos to Clarity
+            </a>
+        </div>
+        <div class="blog-card">
+            <a href="https://dzone.com/articles/ibm-cloud-app-configuration-idp" target="_blank">
+                Optimizing Your IDP Using Centralized Configuration Management With IBM Cloud App Configuration: A
+                Complete Guide
+            </a>
+        </div>
+        <div class="blog-card">
+            <a href="https://dzone.com/articles/platform-engineering-chaos-experiments-resilience" target="_blank">
+                Breaking to Build Better: Platform Engineering With Chaos Experiments
+            </a>
+        </div>
+        <div class="blog-card">
+            <a href="https://dzone.com/articles/platform-engineering-for-cloud-teams" target="_blank">
+                Platform Engineering for Cloud Teams
+            </a>
+        </div>
 
-    <h3>☁️ Cloud Security & Compliance</h3>
-    <div class="blog-card">
-      <a href="https://dzone.com/articles/secure-iac-with-a-shift-left-approach" target="_blank">
-        Secure IaC With a Shift-Left Approach
-      </a>
-    </div>
+        <h3>☁️ Cloud Security & Compliance</h3>
+        <div class="blog-card">
+            <a href="https://dzone.com/articles/secure-iac-with-a-shift-left-approach" target="_blank">
+                Secure IaC With a Shift-Left Approach
+            </a>
+        </div>
 
-    <!-- <h3>🤖 AI & Auto-Scaling Research</h3>
+        <!-- <h3>🤖 AI & Auto-Scaling Research</h3>
     <div class="blog-card">
       <a href="https://dzone.com/articles/custom-metrics-hpa-for-llm-inference-scaling" target="_blank">
         Autoscaling LLM Applications Using Custom Metrics in Kubernetes
@@ -297,33 +381,9 @@
         Proactive Auto-Scaling for LLMs Using Inference Metrics
       </a>
     </div> -->
-  </div>
+    </div>
 
-  <script>
-  const words = [
-    ['Cloud Architecture', 40],
-    ['Platform Engineering', 35],
-    ['Zero Trust', 25],
-    ['Kubernetes', 30],
-    ['DevSecOps', 28],
-    ['IaC', 32],
-    ['AI Automation', 26],
-    ['LLM Performance', 22],
-    ['Auto-Scaling', 27],
-    ['Cloud Security', 33]
-  ];
 
-  WordCloud(document.getElementById('wordCanvas'), {
-    list: words,
-    gridSize: 5,
-    weightFactor: 3,
-    fontFamily: 'Helvetica, Arial, sans-serif',
-    color: 'white',
-    backgroundColor: '#054ada',
-    rotateRatio: 0.3,
-    rotationSteps: 2,
-    shape: 'circle'
-  });
-</script>
 </body>
+
 </html>
