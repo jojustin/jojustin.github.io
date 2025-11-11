@@ -9,75 +9,84 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/wordcloud2.js/1.2.2/wordcloud2.min.js"></script>
 
     <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const wordSets = [
-      [
-        ['Cloud Architecture', 35],
-        ['Platform Engineering', 30],
-        ['Zero Trust', 20],
-        ['Kubernetes', 25],
-        ['DevSecOps', 24],
-        ['IaC', 28],
-        ['AI Automation', 22],
-        ['LLM Performance', 18],
-        ['Auto-Scaling', 20],
-        ['Cloud Security', 26],
-        ['Self-Healing', 20]
-      ],
-      [
-        ['Infrastructure as Code', 32],
-        ['Event-Driven Automation', 28],
-        ['Observability', 25],
-        ['Chaos Engineering', 22],
-        ['Zero Trust', 24],
-        ['Platform Resilience', 26],
-        ['AI Agents', 20],
-        ['Edge Computing', 22],
-        ['Cloud Cost Optimization', 21]
-      ],
-      [
-        ['HPA Custom Metrics', 28],
-        ['Performance Prediction', 26],
-        ['LLM Autoscaling', 24],
-        ['AI-driven Scaling', 22],
-        ['Prometheus Adapter', 20],
-        ['Inference Metrics', 25],
-        ['Adaptive Cloud Systems', 23]
-      ]
-    ];
+        document.addEventListener("DOMContentLoaded", function () {
+            const wordSets = [
+                [
+                    ['Cloud Architecture', 35],
+                    ['Platform Engineering', 30],
+                    ['Zero Trust', 20],
+                    ['Kubernetes', 25],
+                    ['DevSecOps', 24],
+                    ['IaC', 28],
+                    ['AI Automation', 22],
+                    ['LLM Performance', 18],
+                    ['Auto-Scaling', 20],
+                    ['Cloud Security', 26],
+                    ['Self-Healing', 20]
+                ],
+                [
+                    ['Infrastructure as Code', 32],
+                    ['Event-Driven Automation', 28],
+                    ['Observability', 25],
+                    ['Chaos Engineering', 22],
+                    ['Zero Trust', 24],
+                    ['Platform Resilience', 26],
+                    ['AI Agents', 20],
+                    ['Edge Computing', 22],
+                    ['Cloud Cost Optimization', 21]
+                ],
+                [
+                    ['HPA Custom Metrics', 28],
+                    ['Performance Prediction', 26],
+                    ['LLM Autoscaling', 24],
+                    ['AI-driven Scaling', 22],
+                    ['Prometheus Adapter', 20],
+                    ['Inference Metrics', 25],
+                    ['Adaptive Cloud Systems', 23]
+                ]
+            ];
 
-    const canvas = document.getElementById('wordCanvas');
-    let index = 0;
+            const canvas = document.getElementById('wordCanvas');
+            let index = 0;
 
-    function drawWordCloud() {
-      const currentWords = wordSets[index];
-      WordCloud(canvas, {
-        list: currentWords,
-        gridSize: 3,
-        weightFactor: 1.0,
-        fontFamily: 'Helvetica, Arial, sans-serif',
-        color: () => "rgba(255,255,255,0.7)",
-        backgroundColor: '#054ada',
-        rotateRatio: 0.2,
-        rotationSteps: 2,
-        shape: 'circle',
-      });
+            function drawWordCloud() {
+                const currentWords = wordSets[index];
+                WordCloud(canvas, {
+                    list: currentWords,
+                    gridSize: 3,
+                    weightFactor: 1.0,
+                    fontFamily: 'Helvetica, Arial, sans-serif',
+                    color: () => "rgba(255,255,255,0.7)",
+                    backgroundColor: '#054ada',
+                    rotateRatio: 0.2,
+                    rotationSteps: 2,
+                    shape: 'circle',
+                });
 
-      // Fade in each refresh
-      canvas.style.opacity = 0;
-      canvas.style.transition = 'opacity 1.5s ease';
-      setTimeout(() => canvas.style.opacity = 1, 200);
+                // Fade in each refresh
+                canvas.style.opacity = 0;
+                canvas.style.transition = 'opacity 1.5s ease';
+                setTimeout(() => canvas.style.opacity = 1, 200);
 
-      // Move to next set
-      index = (index + 1) % wordSets.length;
-    }
+                // Move to next set
+                index = (index + 1) % wordSets.length;
+            }
 
-    // Initial draw
-    drawWordCloud();
-    // 🔁 Update every 10 seconds
-    setInterval(drawWordCloud, 10000);
-  });
-</script>
+            // Initial draw
+            drawWordCloud();
+            // 🔁 Update every 10 seconds
+            setInterval(drawWordCloud, 10000);
+        });
+
+        setInterval(() => {
+            WordCloud(canvas, {
+                list: words,
+                color: () => `rgba(255,255,255,${Math.random() * 0.6 + 0.4})`, // flicker between 0.4–1.0 opacity
+                backgroundColor: '#054ada'
+            });
+        }, 8000);
+
+    </script>
 
 
     <style>
@@ -301,7 +310,7 @@
         <img src="ProfilePhoto.jpg" alt="Josephine Eskaline Joyce" />
         <h1>Josephine Eskaline Joyce</h1>
         <h3>Cloud Architect @ IBM<br>AI & Platform Engineering Researcher</h3>
-
+        <hr>
         <div class="links">
             <a href="https://github.com/jojustin" target="_blank">GitHub</a>
             <a href="https://www.linkedin.com/in/josephine-joyce/" target="_blank">LinkedIn</a>
