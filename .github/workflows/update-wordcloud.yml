@@ -1,0 +1,36 @@
+name: Auto-Update Wordcloud Data
+
+on:
+  schedule:
+    - cron: "0 5 * * 1" # every Monday at 5 AM UTC
+  workflow_dispatch: # allow manual trigger
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: pip install requests beautifulsoup4
+
+      - name: Run wordcloud generator
+        run: python generate_wordcloud_json.py
+
+      - name: Commit and push if changed
+        run: |
+          git config --global user.email "actions@github.com"
+          git config --global user.name "GitHub Actions"
+          if [ -s wordcloud_diff.json ]; then
+            git add wordcloud_data.json wordcloud_diff.json
+            git commit -m "🔄 Auto-update wordcloud data ($(date))"
+            git push
+          else
+            echo "No changes detected — skipping commit."
+          fi
