@@ -1,41 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Me - Josephine Eskaline Joyce</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Me – Josephine Eskaline Joyce</title>
+
   <style>
-    body { font-family: Arial, sans-serif; margin: 40px; line-height: 1.6; color: #333; }
-    h1 { color: #2a4d9b; }
-    section { margin-bottom: 20px; }
+    :root {
+      --ibm-blue: #054ada;
+      --ibm-gray: #f5f7fa;
+      --ibm-dark: #1d1d1d;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Helvetica Neue", Arial, sans-serif;
+      background-color: var(--ibm-gray);
+      color: var(--ibm-dark);
+      line-height: 1.6;
+    }
+
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 60px 20px;
+      background: linear-gradient(90deg, var(--ibm-blue) 35%, white 35%);
+    }
+
+    .photo {
+      flex: 1 1 300px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .photo img {
+      width: 250px;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 5px solid white;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .content {
+      flex: 2 1 500px;
+      background-color: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      color: var(--ibm-blue);
+      margin-top: 0;
+    }
+
+    h2 {
+      color: var(--ibm-dark);
+      margin-bottom: 10px;
+    }
+
+    .links a {
+      display: inline-block;
+      margin-right: 15px;
+      text-decoration: none;
+      color: var(--ibm-blue);
+      font-weight: 600;
+    }
+
+    .links a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+        background: var(--ibm-blue);
+      }
+
+      .content {
+        margin-top: 20px;
+      }
+    }
   </style>
 </head>
 <body>
-    <img src="ProfilePhoto.jpg" alt="Josephine Eskaline Joyce" width="180" style="border-radius: 50%; display: block; margin: 0 auto;">
+  <div class="container">
+    <div class="photo">
+      <!-- Replace "joyce.jpg" with your uploaded image filename -->
+      <img src="ProfilePhoto.jpg" alt="Josephine Eskaline Joyce" />
+    </div>
 
-  <h1>Hi, I'm Josephine Eskaline Joyce 👋</h1>
-  <p>Cloud Architect @ IBM | AI & Platform Engineering Researcher</p>
+    <div class="content">
+      <h1>Josephine Eskaline Joyce</h1>
+      <h2>Cloud Architect @ IBM | AI & Platform Engineering Researcher</h2>
+      <p>
+        I specialize in building scalable, secure, and intelligent cloud-native systems.
+        My work focuses on Kubernetes-based auto-scaling for large language models (LLMs),
+        self-healing infrastructure, and AI-driven platform engineering.
+      </p>
 
-  <section>
-    <h2>About Me</h2>
-    <p>I work on scalable cloud-native architectures for AI workloads, focusing on Kubernetes auto-scaling, self-healing systems, and multi-agent platforms.</p>
-  </section>
+      <p>
+        I enjoy exploring the intersection of <strong>AI, automation, and DevOps</strong>,
+        authoring blogs, and speaking at technology conferences about cloud architecture,
+        platform resilience, and generative AI applications.
+      </p>
 
-  <section>
-    <h2>Publications & Talks</h2>
-    <ul>
-      <li>IEEE Paper: <em>Enhancing Kubernetes Auto-Scaling with Metrics</em></li>
-      <li>Speaker: “Securing the Future: MLSecOps Challenges”</li>
-    </ul>
-  </section>
-
-  <section>
-    <h2>Find Me</h2>
-    <p>
-      💼 <a href="https://www.linkedin.com/in/josephine-eskaline-joyce" target="_blank">LinkedIn</a><br>
-      📝 <a href="https://dzone.com/users/jojustin" target="_blank">DZone</a><br>
-      🐙 <a href="https://github.com/jojustin" target="_blank">GitHub</a>
-    </p>
-  </section>
+      <div class="links">
+        <a href="https://github.com/jojustin" target="_blank">GitHub</a>
+        <a href="https://www.linkedin.com/in/josephine-eskaline-joyce" target="_blank">LinkedIn</a>
+        <a href="https://dzone.com/users/jojustin" target="_blank">DZone</a>
+        <a href="https://medium.com/@jojustin" target="_blank">Medium</a>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
